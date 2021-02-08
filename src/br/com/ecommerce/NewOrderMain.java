@@ -1,3 +1,4 @@
+package br.com.ecommerce;
 import java.util.Properties;
 import java.util.concurrent.ExecutionException;
 
@@ -10,7 +11,7 @@ public class NewOrderMain {
 
 	public static void main(String[] args) throws InterruptedException, ExecutionException {
 		var producer = new KafkaProducer<String, String>(properties());
-		var value = "1231, 12321, 12331321";
+		var value = "1221, 12321, 12331321";
 		var record = new ProducerRecord<String, String>("ECOMMERCE_NEW_ORDER", value, value);
 		producer.send(record, (data, ex) -> {
 			if (ex != null) {
